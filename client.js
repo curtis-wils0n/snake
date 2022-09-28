@@ -8,9 +8,13 @@ const connect = function () {
 
   conn.setEncoding('utf8');
 
+  conn.on("connect", () => {
+    conn.write("Name: CJW");
+  });
+
   conn.on("data", (data) => {
     console.log(data);
-  })
+  });
 
   return conn;
 }
