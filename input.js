@@ -1,4 +1,5 @@
 let connection;
+const movement = require('./constants').MOVEMENT;
 
 const setupInput = (conn) => {
   connection = conn;
@@ -16,8 +17,9 @@ const handleUserInput = function(key) {
   }
   if (key === 't') {
     connection.write("Say: I'm a snake!");
+  } else {
+    connection.write(movement[key]);
   }
-  connection.write(`Move: ${key}`);
 };
 
 module.exports = setupInput;
